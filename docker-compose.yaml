@@ -1,0 +1,17 @@
+version: "3"
+services:
+  web_1:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wifi_monitor_app:prod
+    restart: always
+    environment:
+      PYTHON_ENV: "production"
+    env_file:
+      - .env
+    container_name: wifi_monitor_prod_1
+    volumes:
+      - .:/app
+      - $SERVER_PATH:$MAP_PATH
+
